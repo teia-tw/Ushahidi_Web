@@ -109,7 +109,7 @@ class geocode_Core {
 	static public function google($address) {
 		$payload = FALSE;
 
-		$url = Kohana::config('config.external_site_protocol').'://maps.google.com/maps/api/geocode/json?sensor=false&address='.rawurlencode($address);
+		$url = Kohana::config('config.external_site_protocol').'://maps.google.com/maps/api/geocode/json?sensor=false&bounds=34.172684,-118.604794|34.236144,-118.500938&region=tw&address='.rawurlencode($address);
 		$result = FALSE;
 
 		$url_request = new HttpClient($url);
@@ -206,7 +206,7 @@ class geocode_Core {
 	 */
 	static function reverseGeocode($latitude, $longitude) {
 		$service = Kohana::config('map.geocode');
-        
+
 		if ($latitude && $longitude)
 		{
 			$function = "reverse" . ucfirst($service);
@@ -245,7 +245,7 @@ class geocode_Core {
 			}
 
 			$location = json_decode($json, FALSE);
-            
+
 			return $location->display_name;
 		}
 		else
