@@ -53,8 +53,8 @@ class Category_Model extends ORM_Tree {
 		$array = Validation::factory($array)
 					->pre_filter('trim', TRUE)
 					->add_rules('parent_id','required', 'numeric')
-					->add_rules('category_title','required', 'length[3,80]')
-					->add_rules('category_description','required')
+					->add_rules('category_title','required', 'length[2,80]')
+					->add_rules('category_description','length[2,160]')
 					->add_rules('category_color','required', 'length[6,6]');
 		
 		
