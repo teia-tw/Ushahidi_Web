@@ -85,4 +85,4 @@ $config['latTo'] = "85";
  * Options are google or nominatim
  */
 
-$config['geocode'] = "nominatim";
+$config['geocode'] = "google";
